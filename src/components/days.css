@@ -42,7 +42,7 @@
 }
 
 .day__meta {
-  margin: 0 0 32px;
+  margin: 0 0 18px;
   padding-top: 20px;
   border-top: 1px solid var(--line);
   font-size: 13px;
@@ -52,5 +52,13 @@
   color: var(--ink-soft);
 }
 .day__meta i { font-style: normal; opacity: 0.45; }
+
+.day__credits {
+  margin: 0 0 32px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink-faint);
+}
+.day__meta + .day__cta { margin-top: 14px; }
 
 @media (max-width: 620px) { .day__cta { width: 100%; } }

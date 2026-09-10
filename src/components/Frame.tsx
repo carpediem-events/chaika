@@ -10,10 +10,13 @@ export function Frame({
   media,
   className = '',
   cover = true,
+  eager = false,
 }: {
   media: Media
   className?: string
   cover?: boolean
+  /** для ленты, которая едет вбок: там ленивая загрузка срабатывает не всегда */
+  eager?: boolean
 }) {
   if (!media.src) {
     return (
@@ -45,7 +48,7 @@ export function Frame({
         <img
           src={media.src}
           alt={media.alt || ''}
-          loading="lazy"
+          loading={eager ? 'eager' : 'lazy'}
           decoding="async"
           style={{ objectFit: cover ? 'cover' : 'contain' }}
         />

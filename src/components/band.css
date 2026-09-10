@@ -1,12 +1,23 @@
 .band { padding: clamp(60px, 10vh, 120px) 0 0; }
 
-.band__line {
+.band__head {
   max-width: 1000px;
   margin: 0 auto clamp(40px, 6vw, 72px);
   padding: 0 var(--pad);
+  text-align: center;
+}
+.band__line {
+  margin: 0 0 22px;
   font-size: clamp(26px, 4.2vw, 58px);
   line-height: 1.14;
-  text-align: center;
+}
+.band__body {
+  max-width: 54ch;
+  margin: 0 auto;
+  font-size: clamp(14px, 1.5vw, 16px);
+  line-height: 1.75;
+  color: var(--ink);
+  opacity: 0.78;
 }
 
 .band__clip {

@@ -37,7 +37,10 @@ export function Band() {
 
   return (
     <section className="band" id="band" ref={root}>
-      <p className="display band__line" data-reveal="0">{band.line}</p>
+      <div className="band__head">
+        <p className="display band__line" data-reveal="0">{band.line}</p>
+        <p className="band__body" data-reveal="0.08">{band.body}</p>
+      </div>
       <div className="band__clip">
         <Frame media={band.media} />
       </div>

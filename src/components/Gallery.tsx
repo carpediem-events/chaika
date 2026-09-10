@@ -66,13 +66,9 @@ export function Gallery() {
 
         <ul className="gal__track" ref={track}>
           {gallery.items.map((item, i) => (
-            <li className="gal__card" key={item.title}>
+            <li className="gal__card" key={item.src || i}>
               <div className="gal__media">
-                <Frame media={item.media} />
-              </div>
-              <div className="gal__cap">
-                <span className="gal__num">{String(i + 1).padStart(2, '0')}</span>
-                <h3 className="gal__card-title">{item.title}</h3>
+                <Frame media={item} eager />
               </div>
             </li>
           ))}

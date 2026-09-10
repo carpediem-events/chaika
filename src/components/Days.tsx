@@ -57,6 +57,10 @@ export function Days() {
                 {d.place} <i>·</i> {d.time}
               </p>
 
+              {d.credits && (
+                <p className="day__credits" data-reveal="0.24">{d.credits}</p>
+              )}
+
               <button className="btn day__cta" data-reveal="0.26" onClick={() => open(d.prefill)}>
                 Забронировать
                 <span className="btn__arrow">→</span>

@@ -37,12 +37,14 @@ export const hero = {
 }
 
 export const band = {
-  line: 'Два дня, тридцать два места\nи ни одного зрительного зала',
+  line: 'Пространство для ярких встреч\nи живого общения',
+  body:
+    'Carpe Diem Events создаёт в Мюнхене мероприятия разных форматов: театральные события, мастер-классы, творческие встречи и выездные программы, которые объединяют людей и дарят эмоции, остающиеся надолго.',
   media: {
-    kind: 'video',
-    src: '',
-    placeholder: 'ВИДЕО: команда машет в камеру, горизонтальное, без звука',
-    alt: 'Carpe Diem',
+    kind: 'image',
+    src: 'media/team.jpg',
+    placeholder: 'ФОТО: команда целиком',
+    alt: 'Гости и команда Carpe Diem',
   } as Media,
 }
 
@@ -57,6 +59,8 @@ export type Day = {
   time: string
   media: Media
   prefill: string
+  /** только для спектакля: постановочная команда с афиши */
+  credits?: string
 }
 
 export const days: Day[] = [
@@ -69,7 +73,7 @@ export const days: Day[] = [
     lead: 'День актёрской практики: тело, голос, импровизация, партнёр. Без опыта и без «надо быть талантливым».',
     place: 'München',
     time: '12:30 — 19:00',
-    media: { kind: 'image', src: '', placeholder: 'ФОТО: мастер-класс / актёры', alt: 'Мастер-класс' },
+    media: { kind: 'image', src: 'media/mk.jpg', placeholder: 'ФОТО: мастер-класс', alt: 'Актёрская практика' },
     prefill: 'Привет! Хочу на мастер-класс «Больше драмы» 26 сентября',
   },
   {
@@ -79,9 +83,10 @@ export const days: Day[] = [
     kicker: 'Спектакль',
     title: 'Пушкин и деньги',
     lead: 'Накануне пробуешь сам — а теперь смотришь, как это делают те, кто сыграл спектакль в тридцати городах Европы.',
+    credits: 'режиссёр Анастасия Патлай · драматург Нана Гринштейн · художник Леонид Шмельков',
     place: 'München',
-    time: 'вечер',
-    media: { kind: 'image', src: '', placeholder: 'ФОТО/ВИДЕО: со спектакля', alt: 'Спектакль' },
+    time: '17:00',
+    media: { kind: 'image', src: 'media/spektakl.jpg', placeholder: 'ФОТО: со спектакля', alt: 'Сцена из спектакля' },
     prefill: 'Привет! Хочу на спектакль «Пушкин и деньги» 27 сентября',
   },
 ]
@@ -148,7 +153,7 @@ export const hosts = {
     'опыт в психологическом, игровом и документальном театре',
     'выпускники ГИТИСа',
   ],
-  media: { kind: 'image', src: '', placeholder: 'ФОТО: Алексей и Егор', alt: 'Алексей Дедоборщ и Егор Морозов' } as Media,
+  media: { kind: 'image', src: 'media/hosts.jpg', placeholder: 'ФОТО: Алексей и Егор', alt: 'Алексей Дедоборщ и Егор Морозов' } as Media,
 }
 
 export const forWhom = {
@@ -167,13 +172,15 @@ export const forWhom = {
 export const gallery = {
   kicker: 'Как это было',
   title: 'Наши встречи',
+  /** без подписей: какое фото с какого события — пока не знаем */
   items: [
-    { title: 'Психология', media: { kind: 'image', src: '', placeholder: 'ФОТО: психология' } as Media },
-    { title: 'Йога', media: { kind: 'image', src: '', placeholder: 'ФОТО: йога' } as Media },
-    { title: 'Rury', media: { kind: 'image', src: '', placeholder: 'ФОТО: Rury' } as Media },
-    { title: 'Спектакли', media: { kind: 'image', src: '', placeholder: 'ФОТО: спектакли' } as Media },
-    { title: 'Команда', media: { kind: 'image', src: '', placeholder: 'ФОТО: команда' } as Media },
-  ],
+    { kind: 'image', src: 'media/past-1.jpg', placeholder: 'ФОТО', alt: '' },
+    { kind: 'image', src: 'media/past-5.jpg', placeholder: 'ФОТО', alt: '' },
+    { kind: 'image', src: 'media/past-3.jpg', placeholder: 'ФОТО', alt: '' },
+    { kind: 'image', src: 'media/past-2.jpg', placeholder: 'ФОТО', alt: '' },
+    { kind: 'image', src: 'media/past-6.jpg', placeholder: 'ФОТО', alt: '' },
+    { kind: 'image', src: 'media/past-4.jpg', placeholder: 'ФОТО', alt: '' },
+  ] as Media[],
 }
 
 export const closing = {
