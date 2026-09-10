@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { isStatic } from '../lib/env'
 import { gallery } from '../content'
 import { Frame } from './Frame'
 import './gallery.css'
@@ -12,6 +13,8 @@ export function Gallery() {
   const track = useRef<HTMLUListElement>(null)
 
   useEffect(() => {
+    if (isStatic) return
+
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia()
 
@@ -58,9 +61,7 @@ export function Gallery() {
             <p className="kicker">{gallery.kicker}</p>
             <h2 className="display gal__h">{gallery.title}</h2>
           </div>
-          <p className="gal__note">
-            {gallery.note} <i>→</i>
-          </p>
+          <p className="gal__note">Листай вбок →</p>
         </header>
 
         <ul className="gal__track" ref={track}>
@@ -71,10 +72,7 @@ export function Gallery() {
               </div>
               <div className="gal__cap">
                 <span className="gal__num">{String(i + 1).padStart(2, '0')}</span>
-                <div>
-                  <h3 className="gal__card-title">{item.title}</h3>
-                  <p className="gal__card-text">{item.caption}</p>
-                </div>
+                <h3 className="gal__card-title">{item.title}</h3>
               </div>
             </li>
           ))}

@@ -1,0 +1,18 @@
+.band { padding: clamp(60px, 10vh, 120px) 0 0; }
+
+.band__line {
+  max-width: 1000px;
+  margin: 0 auto clamp(40px, 6vw, 72px);
+  padding: 0 var(--pad);
+  font-size: clamp(26px, 4.2vw, 58px);
+  line-height: 1.14;
+  text-align: center;
+}
+
+.band__clip {
+  position: relative;
+  height: clamp(300px, 62vh, 660px);
+  overflow: hidden;
+  will-change: clip-path;
+}
+.band__clip .frame { position: absolute; inset: -10% 0; height: 120%; }

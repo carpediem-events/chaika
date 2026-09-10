@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { pricing } from '../content'
 import { useBooking } from './Booking'
 import './sticky.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
 /**
- * Липкая кнопка брони. По ТЗ Розы: появляется, когда человек доходит
- * до блока прошлых мероприятий, и держится до конца страницы.
- * Прячется только на финальном экране — там уже есть большая кнопка.
+ * Кнопка брони следует за человеком: появляется с блока прошлых встреч
+ * и прячется только на финальном экране, где уже стоит большая кнопка.
  */
 export function StickyCta() {
   const [shown, setShown] = useState(false)
@@ -25,8 +23,8 @@ export function StickyCta() {
         onLeaveBack: () => setShown(false),
       })
       ScrollTrigger.create({
-        trigger: '#finale',
-        start: 'top 65%',
+        trigger: '#closing',
+        start: 'top 60%',
         onEnter: () => setShown(false),
         onLeaveBack: () => setShown(true),
       })
@@ -36,17 +34,9 @@ export function StickyCta() {
 
   return (
     <div className={`sticky ${shown ? 'is-on' : ''}`} aria-hidden={!shown}>
-      <div className="sticky__pill">
-        <span className="sticky__info">
-          <b>{pricing.early}</b>
-          <s>{pricing.regular}</s>
-          <i>· осталось {pricing.seatsLeft} мест</i>
-        </span>
-        <button className="btn btn--primary sticky__btn" onClick={() => open()} tabIndex={shown ? 0 : -1}>
-          Забронировать
-          <span className="btn__arrow">→</span>
-        </button>
-      </div>
+      <button className="btn sticky__btn" onClick={() => open()} tabIndex={shown ? 0 : -1}>
+        Забронировать
+      </button>
     </div>
   )
 }

@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import Lenis from 'lenis'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { isStatic } from '../lib/env'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -9,8 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 export function useSmoothScroll() {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    // ?static — режим для снятия скриншотов: без инерции и без анимаций проявления
-    if (import.meta.env.DEV && new URLSearchParams(location.search).has('static')) return
+    if (isStatic) return
 
     const lenis = new Lenis({
       duration: 1.15,

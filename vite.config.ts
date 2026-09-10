@@ -6,5 +6,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: './',
   plugins: [react()],
+  // --host: dev-сервер виден в локальной сети — открыть с телефона
+  server: { host: true },
   build: { assetsInlineLimit: 0 },
 })

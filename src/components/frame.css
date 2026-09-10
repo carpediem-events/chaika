@@ -3,26 +3,21 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: var(--ink-2);
+  background: var(--bone-2);
 }
 .frame > img,
-.frame > video {
-  width: 100%;
-  height: 100%;
-}
+.frame > video { width: 100%; height: 100%; }
 
-/* заглушка: не «битая картинка», а спокойный тёмный прямоугольник с подписью */
-.frame--empty {
-  background:
-    radial-gradient(120% 90% at 30% 15%, rgba(201, 160, 99, 0.16), transparent 60%),
-    linear-gradient(150deg, var(--ink-3), var(--ink));
-}
+.frame--empty { background: var(--bone-2); }
 .frame--empty::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-image:
-    repeating-linear-gradient(45deg, rgba(242, 236, 225, 0.028) 0 2px, transparent 2px 9px);
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(60, 74, 87, 0.035) 0 1px,
+    transparent 1px 11px
+  );
 }
 .frame__ph {
   position: absolute;
@@ -31,22 +26,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 12px;
   padding: 24px;
   text-align: center;
 }
-.frame__ph-icon {
-  font-size: 18px;
-  color: var(--gold);
-  opacity: 0.75;
-  line-height: 1;
-}
+.frame__ph-icon { font-size: 16px; color: var(--ink-faint); line-height: 1; }
 .frame__ph-text {
-  max-width: 30ch;
-  font-size: 11px;
-  font-weight: 600;
+  max-width: 28ch;
+  font-size: 10.5px;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   line-height: 1.7;
-  color: var(--ivory-faint);
+  color: var(--ink-faint);
 }

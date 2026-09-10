@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { isStatic } from '../lib/env'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -10,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger)
  */
 export function useReveal() {
   useEffect(() => {
-    if (import.meta.env.DEV && new URLSearchParams(location.search).has('static')) {
+    if (isStatic) {
       document.documentElement.classList.add('is-static')
       return
     }

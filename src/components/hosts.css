@@ -1,0 +1,62 @@
+.hosts { padding: clamp(40px, 7vh, 90px) 0; }
+
+.hosts__grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  align-items: center;
+  gap: clamp(30px, 6vw, 84px);
+}
+@media (max-width: 880px) { .hosts__grid { grid-template-columns: 1fr; gap: 28px; } }
+
+.hosts__media { aspect-ratio: 4 / 5; overflow: hidden; border-radius: 6px; }
+@media (max-width: 880px) { .hosts__media { aspect-ratio: 4 / 3; } }
+
+.hosts__body .kicker { margin-bottom: 18px; }
+.hosts__names { font-size: clamp(30px, 4.6vw, 60px); margin-bottom: 18px; }
+.hosts__role {
+  margin: 0 0 30px;
+  font-size: clamp(14px, 1.5vw, 16px);
+  color: var(--ink-soft);
+}
+
+.hosts__facts { list-style: none; margin: 0; padding: 0; }
+.hosts__facts li {
+  padding: 15px 0;
+  border-top: 1px solid var(--line);
+  font-size: clamp(14px, 1.5vw, 16.5px);
+  line-height: 1.5;
+}
+.hosts__facts li:last-child { border-bottom: 1px solid var(--line); }
+
+/* ---- для кого ---- */
+.who { padding: clamp(60px, 10vh, 120px) 0; }
+.who .kicker { margin-bottom: 20px; }
+
+.who__h { position: relative; display: inline-block; font-size: clamp(36px, 6vw, 80px); }
+.who__doodle { position: absolute; left: 0; top: 100%; margin-top: -2px; width: 100%; }
+
+.who__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0 clamp(24px, 5vw, 70px);
+  list-style: none;
+  margin: clamp(40px, 6vw, 64px) 0 0;
+  padding: 0;
+}
+.who__list li {
+  display: flex;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.5;
+}
+.who__list li::before {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 6px;
+  margin-top: 0.6em;
+  border-radius: 50%;
+  background: var(--green);
+}
