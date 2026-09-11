@@ -61,6 +61,14 @@
 }
 .day__meta i { font-style: normal; opacity: 0.45; }
 
+.day__place {
+  border-bottom: 1px solid var(--ink-faint);
+  padding-bottom: 1px;
+  color: var(--ink-strong);
+  transition: border-color 0.3s, color 0.3s;
+}
+.day__place:hover { border-color: var(--ink-strong); }
+
 .day__ext { display: flex; flex-direction: column; gap: 16px; }
 .day__ext-row { display: flex; gap: 10px; flex-wrap: wrap; }
 .day__promo {

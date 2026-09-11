@@ -34,9 +34,28 @@
 }
 .gal__card:hover .gal__media { transform: translateY(-6px); }
 
-.gal__cap { display: flex; gap: 12px; padding-top: 16px; }
-.gal__num { font-family: var(--font-display); font-size: 14px; color: var(--ink-faint); }
-.gal__card-title { margin: 0; font-size: 15px; font-weight: 600; }
+.gal__cap {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.gal__num {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+.gal__card-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(17px, 1.9vw, 21px);
+  font-weight: 500;
+  line-height: 1.22;
+  color: var(--ink-strong);
+}
 
 @media (max-width: 900px) {
   .gal { overflow: visible; }
@@ -44,6 +63,8 @@
     width: auto;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    /* без этого snap подтягивает первую карточку под самый край и режет подпись */
+    scroll-padding-left: var(--pad);
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }

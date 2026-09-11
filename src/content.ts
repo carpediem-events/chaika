@@ -21,21 +21,23 @@ export const contacts = {
   tiktok: { user: '' },
 }
 
-/** Площадка. Пока пусто — на сайте вместо неё видна заглушка. */
 export const venue = {
-  name: '', // TODO: точное название культур-центра
-  address: '', // TODO: адрес
+  city: 'München',
+  name: 'Kulturzentrum GOROD',
+  map: 'https://maps.app.goo.gl/9KK73kS2ksNDq4Br6',
 }
 
-export const priceDeadline = new Date(2026, 8, 13, 23, 59, 59)
+/** 99 € действуют по 19 сентября включительно, с 20-го — 119 €. */
+export const priceDeadline = new Date(2026, 8, 19, 23, 59, 59)
 
 export const pricing = {
   early: '99 €',
   regular: '119 €',
-  seatsTotal: 32,
-  seatsLeft: 16,
   /** 99 € — только за мастер-класс 26.09. Билет на спектакль покупается у театра. */
   what: 'мастер-класс 26 сентября',
+  /** без точных цифр: дефицит виден, но пересчитывать число мест не нужно */
+  seats: 'осталось 30% мест',
+  seatsNote: 'Места ограничены',
 }
 
 export const hero = {
@@ -200,18 +202,13 @@ export const forWhom = {
 export const gallery = {
   kicker: 'Как это было',
   title: 'Наши встречи',
-  /** без подписей: какое фото с какого события — пока не знаем */
   items: [
-    { kind: 'image', src: 'media/past-1.jpg', placeholder: 'ФОТО', alt: '' },
-    { kind: 'image', src: 'media/past-5.jpg', placeholder: 'ФОТО', alt: '' },
-    { kind: 'image', src: 'media/past-3.jpg', placeholder: 'ФОТО', alt: '' },
-    { kind: 'image', src: 'media/past-2.jpg', placeholder: 'ФОТО', alt: '' },
-    { kind: 'image', src: 'media/past-6.jpg', placeholder: 'ФОТО', alt: '' },
-    { kind: 'image', src: 'media/past-4.jpg', placeholder: 'ФОТО', alt: '' },
-    { kind: 'image', src: 'media/past-7.jpg', placeholder: 'ФОТО', alt: '' },
-    { kind: 'image', src: 'media/past-8.jpg', placeholder: 'ФОТО', alt: '' },
-    { kind: 'image', src: 'media/past-9.jpg', placeholder: 'ФОТО', alt: '' },
-  ] as Media[],
+    { title: 'Звукотерапия и творчество', media: { kind: 'image', src: 'media/ev-1.jpg', placeholder: 'ФОТО' } as Media },
+    { title: 'Арт-терапия', media: { kind: 'image', src: 'media/ev-2.jpg', placeholder: 'ФОТО' } as Media },
+    { title: 'Актёрский мастер-класс', media: { kind: 'image', src: 'media/ev-3.jpg', placeholder: 'ФОТО' } as Media },
+    { title: 'День йоги', media: { kind: 'image', src: 'media/ev-4.jpg', placeholder: 'ФОТО' } as Media },
+    { title: 'Расстановки', media: { kind: 'image', src: 'media/ev-5.jpg', placeholder: 'ФОТО' } as Media },
+  ],
 }
 
 export const closing = {

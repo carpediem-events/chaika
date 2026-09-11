@@ -56,7 +56,7 @@ export function Closing() {
           </button>
 
           <p className="close__note" data-reveal="0.18">
-            Мастер-класс · осталось {pricing.seatsLeft} из {pricing.seatsTotal} мест
+            Мастер-класс · {pricing.seatsNote.toLowerCase()}, {pricing.seats}
           </p>
         </div>
       </section>

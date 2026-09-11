@@ -58,8 +58,10 @@ export function Days() {
               <p className="day__lead" data-reveal="0.18">{d.lead}</p>
 
               <p className="day__meta" data-reveal="0.22">
-                {venue.name || <span className="todo">площадка не получена</span>}
-                <i>·</i> München <i>·</i> {d.time}
+                <a className="day__place" href={venue.map} target="_blank" rel="noopener noreferrer">
+                  {venue.name}
+                </a>
+                <i>·</i> {venue.city} <i>·</i> {d.time}
               </p>
 
               {d.credits && (

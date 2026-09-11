@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { isStatic } from '../lib/env'
-import { hero, pricing } from '../content'
+import { hero, pricing, venue } from '../content'
 import { Burst } from './Burst'
 import { Doodle } from './Doodle'
 import { useBooking } from './Booking'
@@ -52,8 +52,12 @@ export function Hero() {
         </span>
 
         <p className="hero__meta">
-          {hero.city} <i>·</i> {hero.dates}
+          {venue.city} <i>·</i> {hero.dates}
         </p>
+
+        <a className="hero__place" href={venue.map} target="_blank" rel="noopener noreferrer">
+          {venue.name}
+        </a>
 
         <h1 className="display hero__title">
           {hero.title.split('\n').map((line, i) => (
@@ -69,7 +73,7 @@ export function Hero() {
           <Doodle kind="arrow-down" className="hero__doodle" width={76} color="var(--ink-soft)" delay={1.5} />
           <button className="btn" onClick={() => open()}>{hero.cta}</button>
           <span className="hero__seats">
-            мастер-класс <i>·</i> осталось {pricing.seatsLeft} из {pricing.seatsTotal}
+            мастер-класс <i>·</i> {pricing.seats}
           </span>
         </div>
       </div>
