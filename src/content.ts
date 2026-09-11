@@ -15,8 +15,7 @@ export type Media = {
 }
 
 export const contacts = {
-  // TODO: завести отдельный аккаунт Carpe Diem под брони и заменить личный
-  telegram: { user: 'zhukov88888', prefill: 'Привет! Хочу забронировать место' },
+  telegram: { user: 'Carpe_diem_event', prefill: 'Привет! Хочу забронировать место' },
   instagram: { user: 'carpe.diem_events' },
   tiktok: { user: '' },
 }
