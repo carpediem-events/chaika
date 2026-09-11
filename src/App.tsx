@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { useViewportLock } from './hooks/useViewportLock'
 import { useSmoothScroll } from './hooks/useSmoothScroll'
 import { useReveal } from './hooks/useReveal'
 import { isStatic } from './lib/env'
@@ -24,6 +25,7 @@ const SECTIONS: [string, ReactNode][] = [
 ]
 
 export default function App() {
+  useViewportLock()
   useSmoothScroll()
   useReveal()
 

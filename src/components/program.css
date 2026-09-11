@@ -1,4 +1,4 @@
-.prog { position: relative; padding: clamp(60px, 9vh, 110px) 0; overflow: hidden; }
+.prog { position: relative; padding: clamp(60px, calc(var(--vh) * 9), 110px) 0; overflow: hidden; }
 .prog__burst { top: -22%; right: -18%; opacity: 0.75; }
 .prog__inner { position: relative; z-index: 1; }
 

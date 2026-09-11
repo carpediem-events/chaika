@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { isStatic } from '../lib/env'
 import { days, venue } from '../content'
 import { Frame } from './Frame'
+import { Promo } from './Promo'
 import { useBooking } from './Booking'
 import './days.css'
 
@@ -70,7 +71,7 @@ export function Days() {
 
               {d.external ? (
                 <div className="day__ext" data-reveal="0.26">
-                  <p className="day__promo">{d.external.promo}</p>
+                  <Promo code={d.external.promo.code} note={d.external.promo.note} />
                   <div className="day__ext-row">
                     {d.external.links.map((l, n) =>
                       l.href ? (

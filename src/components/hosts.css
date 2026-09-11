@@ -1,4 +1,4 @@
-.hosts { padding: clamp(40px, 7vh, 90px) 0; }
+.hosts { padding: clamp(40px, calc(var(--vh) * 7), 90px) 0; }
 
 .hosts__grid {
   display: grid;
@@ -30,7 +30,7 @@
 .hosts__facts li:last-child { border-bottom: 1px solid var(--line); }
 
 /* ---- для кого ---- */
-.who { padding: clamp(60px, 10vh, 120px) 0; }
+.who { padding: clamp(60px, calc(var(--vh) * 10), 120px) 0; }
 .who .kicker { margin-bottom: 20px; }
 
 .who__h { position: relative; display: inline-block; font-size: clamp(36px, 6vw, 80px); }

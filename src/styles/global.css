@@ -16,12 +16,24 @@
   --pad: clamp(20px, 5vw, 76px);
   --maxw: 1280px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Стабильный 1vh. На телефоне живой vh скачет, когда браузер прячет/показывает
+     свой интерфейс — вся вёрстка считает высоты отсюда. Значение замораживает
+     useViewportLock, до его запуска работает svh (тот же вьюпорт, но из CSS). */
+  --vh: 1vh;
+}
+@supports (height: 1svh) {
+  :root { --vh: 1svh; }
 }
 
 * { box-sizing: border-box; }
 
 html, body { margin: 0; padding: 0; background: var(--bone); color: var(--ink); }
-html { -webkit-text-size-adjust: 100%; }
+html {
+  -webkit-text-size-adjust: 100%;
+  /* меньше поводов у мобильного браузера дёргать свой интерфейс на оверскролле */
+  overscroll-behavior-y: none;
+}
 
 body {
   font-family: var(--font-ui);
@@ -100,7 +112,6 @@ a { color: inherit; text-decoration: none; }
   white-space: nowrap;
   transition: transform 0.4s var(--ease), background 0.4s var(--ease);
 }
-.btn:hover { transform: translateY(-2px); background: #22303c; }
 .btn:active { transform: translateY(0); }
 
 .btn--quiet {
@@ -109,10 +120,14 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--line);
   font-weight: 600;
 }
-.btn--quiet:hover { background: rgba(60, 74, 87, 0.05); border-color: var(--ink-faint); }
-
 .btn__arrow { transition: transform 0.4s var(--ease); }
-.btn:hover .btn__arrow { transform: translateX(4px); }
+
+/* :hover только при реальной мыши — на тачах он залипает после тапа */
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover { transform: translateY(-2px); background: #22303c; }
+  .btn--quiet:hover { background: rgba(60, 74, 87, 0.05); border-color: var(--ink-faint); }
+  .btn:hover .btn__arrow { transform: translateX(4px); }
+}
 
 /* ---------- заглушки: видно, чего ещё не прислали ---------- */
 .todo {
@@ -135,6 +150,15 @@ a { color: inherit; text-decoration: none; }
 }
 .btn--todo:hover { transform: none; background: none; }
 .btn--todo { white-space: normal; text-align: center; line-height: 1.35; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 
 /* ---------- декор ---------- */
 .burst { position: absolute; pointer-events: none; color: var(--burst); z-index: 0; }

@@ -1,4 +1,4 @@
-.gal { position: relative; padding-top: clamp(60px, 10vh, 120px); overflow: hidden; }
+.gal { position: relative; padding-top: clamp(60px, calc(var(--vh) * 10), 120px); overflow: hidden; }
 .gal__inner { display: flex; flex-direction: column; gap: clamp(30px, 4vw, 52px); }
 
 .gal__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
@@ -19,7 +19,7 @@
   gap: clamp(14px, 1.8vw, 24px);
   list-style: none;
   margin: 0;
-  padding: 0 var(--pad) clamp(60px, 9vh, 100px);
+  padding: 0 var(--pad) clamp(60px, calc(var(--vh) * 9), 100px);
   width: max-content;
   will-change: transform;
 }
@@ -32,7 +32,10 @@
   border-radius: 6px;
   transition: transform 0.6s var(--ease);
 }
-.gal__card:hover .gal__media { transform: translateY(-6px); }
+/* подъём кадра — только при наведении мышью: на телефоне :hover залипает после тапа */
+@media (hover: hover) and (pointer: fine) {
+  .gal__card:hover .gal__media { transform: translateY(-6px); }
+}
 
 .gal__cap {
   display: flex;
@@ -56,6 +59,28 @@
   font-weight: 500;
   line-height: 1.22;
   color: var(--ink-strong);
+}
+
+/* Десктоп: секция прилипает на весь экран, лента едет вбок.
+   Держим содержимое по центру и резервируем низ под плавающую кнопку брони —
+   иначе лента замерзает у самого края и кнопка наезжает на подписи. */
+@media (min-width: 901px) {
+  .gal {
+    display: flex;
+    align-items: center;
+    height: calc(var(--vh) * 100);
+    padding-top: 0;
+    padding-bottom: clamp(96px, calc(var(--vh) * 13), 132px);
+  }
+  .gal__inner { width: 100%; gap: clamp(22px, calc(var(--vh) * 3.4), 44px); }
+  .gal__track { padding-bottom: 0; }
+  /* на невысоком мониторе карточка ужимается, чтобы лента целиком влезла в экран */
+  .gal__card {
+    width: min(
+      clamp(240px, 25vw, 340px),
+      max(200px, calc((var(--vh) * 100 - 350px) * 0.75))
+    );
+  }
 }
 
 @media (max-width: 900px) {

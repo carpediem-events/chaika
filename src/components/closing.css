@@ -1,6 +1,6 @@
 .close {
   position: relative;
-  padding: clamp(90px, 15vh, 180px) 0 clamp(80px, 12vh, 150px);
+  padding: clamp(90px, calc(var(--vh) * 15), 180px) 0 clamp(80px, calc(var(--vh) * 12), 150px);
   overflow: hidden;
   text-align: center;
 }

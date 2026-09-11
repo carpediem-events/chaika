@@ -1,4 +1,4 @@
-.band { padding: clamp(60px, 10vh, 120px) 0 0; }
+.band { padding: clamp(60px, calc(var(--vh) * 10), 120px) 0 0; }
 
 .band__head {
   max-width: 1000px;
@@ -22,7 +22,7 @@
 
 .band__clip {
   position: relative;
-  height: clamp(300px, 62vh, 660px);
+  height: clamp(300px, calc(var(--vh) * 62), 660px);
   overflow: hidden;
   will-change: clip-path;
 }

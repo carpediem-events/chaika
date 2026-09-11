@@ -78,7 +78,8 @@ export type Day = {
    * Пустой href — на сайте вместо кнопки заглушка «ссылка не получена».
    */
   external?: {
-    promo: string
+    /** code уезжает в буфер по нажатию на плашку, note — что он даёт */
+    promo: { code: string; note: string }
     links: { label: string; href: string }[]
   }
 }
@@ -112,7 +113,7 @@ export const days: Day[] = [
       fit: 'contain',
     },
     external: {
-      promo: 'По промокоду COLAB — скидка 10% от нас',
+      promo: { code: 'COLAB', note: 'скидка 10% от нас' },
       links: [
         { label: 'Купить билет', href: 'https://www.tickettailor.com/events/thechaika/2337170' },
         { label: 'Instagram театра', href: 'https://www.instagram.com/the.chaika/' },
