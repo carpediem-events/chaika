@@ -112,11 +112,10 @@ export const days: Day[] = [
       fit: 'contain',
     },
     external: {
-      // TODO: подтвердить у театра — 10 € или 10 %, и действует ли промокод
-      promo: 'По промокоду ЧАЙКА — скидка 10 от нас',
+      promo: 'По промокоду COLAB — скидка 10% от нас',
       links: [
-        { label: 'Купить билет', href: '' }, // TODO: ссылка The Chaika на билеты
-        { label: 'Instagram театра', href: '' }, // TODO: @the.chaika
+        { label: 'Купить билет', href: 'https://www.tickettailor.com/events/thechaika/2337170' },
+        { label: 'Instagram театра', href: 'https://www.instagram.com/the.chaika/' },
       ],
     },
   },
