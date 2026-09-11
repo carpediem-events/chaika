@@ -208,6 +208,9 @@ export const gallery = {
     { kind: 'image', src: 'media/past-2.jpg', placeholder: 'ФОТО', alt: '' },
     { kind: 'image', src: 'media/past-6.jpg', placeholder: 'ФОТО', alt: '' },
     { kind: 'image', src: 'media/past-4.jpg', placeholder: 'ФОТО', alt: '' },
+    { kind: 'image', src: 'media/past-7.jpg', placeholder: 'ФОТО', alt: '' },
+    { kind: 'image', src: 'media/past-8.jpg', placeholder: 'ФОТО', alt: '' },
+    { kind: 'image', src: 'media/past-9.jpg', placeholder: 'ФОТО', alt: '' },
   ] as Media[],
 }
 
