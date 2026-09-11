@@ -9,9 +9,10 @@
 @media (max-width: 880px) { .hosts__grid { grid-template-columns: 1fr; gap: 28px; } }
 
 .hosts__media { aspect-ratio: 4 / 5; overflow: hidden; border-radius: 6px; }
-@media (max-width: 880px) { .hosts__media { aspect-ratio: 4 / 3; } }
+/* кадр обрезается снизу, не по головам */
+.hosts__media img { object-position: center top; }
+/* на мобильном пропорции не меняем — иначе срезает головы */
 
-.hosts__body .kicker { margin-bottom: 18px; }
 .hosts__names { font-size: clamp(30px, 4.6vw, 60px); margin-bottom: 18px; }
 .hosts__role {
   margin: 0 0 30px;

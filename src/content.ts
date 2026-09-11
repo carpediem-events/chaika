@@ -10,12 +10,21 @@ export type Media = {
   placeholder: string
   poster?: string
   alt?: string
+  /** contain — для афиши: её нельзя кадрировать */
+  fit?: 'cover' | 'contain'
 }
 
 export const contacts = {
+  // TODO: завести отдельный аккаунт Carpe Diem под брони и заменить личный
   telegram: { user: 'zhukov88888', prefill: 'Привет! Хочу забронировать место' },
   instagram: { user: 'carpe.diem_events' },
   tiktok: { user: '' },
+}
+
+/** Площадка. Пока пусто — на сайте вместо неё видна заглушка. */
+export const venue = {
+  name: '', // TODO: точное название культур-центра
+  address: '', // TODO: адрес
 }
 
 export const priceDeadline = new Date(2026, 8, 13, 23, 59, 59)
@@ -25,7 +34,8 @@ export const pricing = {
   regular: '119 €',
   seatsTotal: 32,
   seatsLeft: 16,
-  note: 'Два дня: мастер-класс и спектакль',
+  /** 99 € — только за мастер-класс 26.09. Билет на спектакль покупается у театра. */
+  what: 'мастер-класс 26 сентября',
 }
 
 export const hero = {
@@ -55,12 +65,20 @@ export type Day = {
   kicker: string
   title: string
   lead: string
-  place: string
   time: string
   media: Media
-  prefill: string
   /** только для спектакля: постановочная команда с афиши */
   credits?: string
+  /** бронь через нас — текст, который подставится в Telegram */
+  prefill?: string
+  /**
+   * Бронь не через нас: билет на спектакль продаёт театр.
+   * Пустой href — на сайте вместо кнопки заглушка «ссылка не получена».
+   */
+  external?: {
+    promo: string
+    links: { label: string; href: string }[]
+  }
 }
 
 export const days: Day[] = [
@@ -71,7 +89,6 @@ export const days: Day[] = [
     kicker: 'Мастер-класс',
     title: 'Больше драмы',
     lead: 'День актёрской практики: тело, голос, импровизация, партнёр. Без опыта и без «надо быть талантливым».',
-    place: 'München',
     time: '12:30 — 19:00',
     media: { kind: 'image', src: 'media/mk.jpg', placeholder: 'ФОТО: мастер-класс', alt: 'Актёрская практика' },
     prefill: 'Привет! Хочу на мастер-класс «Больше драмы» 26 сентября',
@@ -84,10 +101,22 @@ export const days: Day[] = [
     title: 'Пушкин и деньги',
     lead: 'Накануне пробуешь сам — а теперь смотришь, как это делают те, кто сыграл спектакль в тридцати городах Европы.',
     credits: 'режиссёр Анастасия Патлай · драматург Нана Гринштейн · художник Леонид Шмельков',
-    place: 'München',
     time: '17:00',
-    media: { kind: 'image', src: 'media/spektakl.jpg', placeholder: 'ФОТО: со спектакля', alt: 'Сцена из спектакля' },
-    prefill: 'Привет! Хочу на спектакль «Пушкин и деньги» 27 сентября',
+    media: {
+      kind: 'image',
+      src: 'media/afisha.jpg',
+      placeholder: 'АФИША: «Пушкин и деньги»',
+      alt: 'Афиша спектакля «Пушкин и деньги»',
+      fit: 'contain',
+    },
+    external: {
+      // TODO: подтвердить у театра — 10 € или 10 %, и действует ли промокод
+      promo: 'По промокоду ЧАЙКА — скидка 10 от нас',
+      links: [
+        { label: 'Купить билет', href: '' }, // TODO: ссылка The Chaika на билеты
+        { label: 'Instagram театра', href: '' }, // TODO: @the.chaika
+      ],
+    },
   },
 ]
 
@@ -145,7 +174,6 @@ export const program = {
 }
 
 export const hosts = {
-  kicker: 'Ведут',
   names: 'Алексей Дедоборщ\nи Егор Морозов',
   role: 'актёры и создатели театра The Chaika',
   facts: [

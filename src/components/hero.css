@@ -63,7 +63,14 @@
   bottom: 26px;
   transform: scaleX(-1) rotate(-8deg);
 }
-.hero__seats { font-size: 12.5px; color: var(--ink-faint); letter-spacing: 0.04em; }
+.hero__seats {
+  display: inline-flex;
+  gap: 7px;
+  font-size: 12.5px;
+  color: var(--ink-faint);
+  letter-spacing: 0.04em;
+}
+.hero__seats i { font-style: normal; opacity: 0.5; }
 
 @media (max-width: 700px) {
   .hero__doodle { display: none; }

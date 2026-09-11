@@ -5,7 +5,7 @@ import './program.css'
 
 /** Программа мастер-класса: одна строка на пункт, описание раскрывается по клику. */
 export function Program() {
-  const [openIdx, setOpenIdx] = useState<number | null>(1)
+  const [openIdx, setOpenIdx] = useState<number | null>(null)
 
   return (
     <section className="prog" id="program">

@@ -13,7 +13,6 @@ export function Hosts() {
           </div>
 
           <div className="hosts__body">
-            <p className="kicker" data-reveal="0.05">{hosts.kicker}</p>
             <h2 className="display hosts__names" data-reveal="0.1">{hosts.names}</h2>
             <p className="hosts__role" data-reveal="0.14">{hosts.role}</p>
 

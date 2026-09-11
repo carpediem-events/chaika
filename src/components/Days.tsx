@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { isStatic } from '../lib/env'
-import { days } from '../content'
+import { days, venue } from '../content'
 import { Frame } from './Frame'
 import { useBooking } from './Booking'
 import './days.css'
@@ -18,7 +18,8 @@ export function Days() {
     if (isStatic) return
 
     const ctx = gsap.context(() => {
-      gsap.utils.toArray<HTMLElement>('.day__media .frame').forEach((el) => {
+      // афишу не двигаем: она вписана целиком, параллакс её бы «косил»
+      gsap.utils.toArray<HTMLElement>('.day__media:not(.day__media--flat) .frame').forEach((el) => {
         gsap.fromTo(
           el,
           { yPercent: -8 },
@@ -38,7 +39,10 @@ export function Days() {
       {days.map((d, i) => (
         <article className={`day ${i % 2 ? 'day--flip' : ''}`} key={d.id}>
           <div className="shell day__grid">
-            <div className="day__media" data-reveal="0">
+            <div
+              className={`day__media ${d.media.fit === 'contain' ? 'day__media--flat' : ''}`}
+              data-reveal="0"
+            >
               <Frame media={d.media} />
             </div>
 
@@ -54,17 +58,43 @@ export function Days() {
               <p className="day__lead" data-reveal="0.18">{d.lead}</p>
 
               <p className="day__meta" data-reveal="0.22">
-                {d.place} <i>·</i> {d.time}
+                {venue.name || <span className="todo">площадка не получена</span>}
+                <i>·</i> München <i>·</i> {d.time}
               </p>
 
               {d.credits && (
                 <p className="day__credits" data-reveal="0.24">{d.credits}</p>
               )}
 
-              <button className="btn day__cta" data-reveal="0.26" onClick={() => open(d.prefill)}>
-                Забронировать
-                <span className="btn__arrow">→</span>
-              </button>
+              {d.external ? (
+                <div className="day__ext" data-reveal="0.26">
+                  <p className="day__promo">{d.external.promo}</p>
+                  <div className="day__ext-row">
+                    {d.external.links.map((l, n) =>
+                      l.href ? (
+                        <a
+                          key={l.label}
+                          className={`btn ${n ? 'btn--quiet' : ''}`}
+                          href={l.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {l.label}
+                        </a>
+                      ) : (
+                        <span key={l.label} className="btn btn--todo">
+                          {l.label} — ссылка не получена
+                        </span>
+                      ),
+                    )}
+                  </div>
+                </div>
+              ) : (
+                <button className="btn day__cta" data-reveal="0.26" onClick={() => open(d.prefill)}>
+                  Забронировать
+                  <span className="btn__arrow">→</span>
+                </button>
+              )}
             </div>
           </div>
         </article>

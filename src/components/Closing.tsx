@@ -46,6 +46,8 @@ export function Closing() {
             {left > 0 && <i>ещё {left} {plural(left)}</i>}
           </p>
 
+          <p className="close__what" data-reveal="0.03">{pricing.what}</p>
+
           <h2 className="display close__h" data-reveal="0.06">{closing.title}</h2>
           <p className="close__body" data-reveal="0.1">{closing.body}</p>
 
@@ -54,7 +56,7 @@ export function Closing() {
           </button>
 
           <p className="close__note" data-reveal="0.18">
-            {pricing.note} · осталось {pricing.seatsLeft} из {pricing.seatsTotal} мест
+            Мастер-класс · осталось {pricing.seatsLeft} из {pricing.seatsTotal} мест
           </p>
         </div>
       </section>

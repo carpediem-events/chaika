@@ -31,6 +31,8 @@ export function Frame({
     )
   }
 
+  const fit = media.fit ?? (cover ? 'cover' : 'contain')
+
   return (
     <div className={`frame ${className}`}>
       {media.kind === 'video' ? (
@@ -42,7 +44,7 @@ export function Frame({
           loop
           playsInline
           preload="metadata"
-          style={{ objectFit: cover ? 'cover' : 'contain' }}
+          style={{ objectFit: fit }}
         />
       ) : (
         <img
@@ -50,7 +52,7 @@ export function Frame({
           alt={media.alt || ''}
           loading={eager ? 'eager' : 'lazy'}
           decoding="async"
-          style={{ objectFit: cover ? 'cover' : 'contain' }}
+          style={{ objectFit: fit }}
         />
       )}
     </div>

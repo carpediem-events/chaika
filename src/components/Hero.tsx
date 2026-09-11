@@ -68,7 +68,9 @@ export function Hero() {
         <div className="hero__act">
           <Doodle kind="arrow-down" className="hero__doodle" width={76} color="var(--ink-soft)" delay={1.5} />
           <button className="btn" onClick={() => open()}>{hero.cta}</button>
-          <span className="hero__seats">осталось {pricing.seatsLeft} из {pricing.seatsTotal}</span>
+          <span className="hero__seats">
+            мастер-класс <i>·</i> осталось {pricing.seatsLeft} из {pricing.seatsTotal}
+          </span>
         </div>
       </div>
     </section>

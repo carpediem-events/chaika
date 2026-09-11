@@ -18,15 +18,15 @@ export function Band() {
     const ctx = gsap.context(() => {
       // кадр раскрывается снизу вверх и медленно едет — тот самый параллакс
       gsap.from('.band__clip', {
-        clipPath: 'inset(18% 12% 18% 12% round 4px)',
+        clipPath: 'inset(9% 6% 9% 6% round 4px)',
         ease: 'none',
         scrollTrigger: { trigger: root.current, start: 'top 90%', end: 'top 25%', scrub: true },
       })
       gsap.fromTo(
         '.band__clip .frame',
-        { yPercent: -8 },
+        { yPercent: -4 },
         {
-          yPercent: 8,
+          yPercent: 4,
           ease: 'none',
           scrollTrigger: { trigger: root.current, start: 'top bottom', end: 'bottom top', scrub: true },
         },

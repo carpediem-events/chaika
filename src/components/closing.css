@@ -12,7 +12,7 @@
   display: flex;
   align-items: baseline;
   gap: 16px;
-  margin: 0 0 26px;
+  margin: 0 0 12px;
 }
 .close__price b {
   font-family: var(--font-display);
@@ -30,6 +30,14 @@
   color: var(--green);
 }
 
+.close__what {
+  margin: 0 0 30px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
 .close__h { font-size: clamp(64px, 14vw, 190px); margin-bottom: 18px; }
 .close__body { margin: 0 0 36px; font-size: clamp(16px, 1.8vw, 19px); color: var(--ink-soft); }
 .close__cta { padding: 19px 44px; font-size: 15px; }
