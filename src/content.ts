@@ -202,11 +202,11 @@ export const gallery = {
   kicker: 'Как это было',
   title: 'Наши встречи',
   items: [
-    { title: 'Звукотерапия и творчество', media: { kind: 'image', src: 'media/ev-1.jpg', placeholder: 'ФОТО' } as Media },
-    { title: 'Арт-терапия', media: { kind: 'image', src: 'media/ev-2.jpg', placeholder: 'ФОТО' } as Media },
-    { title: 'Актёрский мастер-класс', media: { kind: 'image', src: 'media/ev-3.jpg', placeholder: 'ФОТО' } as Media },
-    { title: 'День йоги', media: { kind: 'image', src: 'media/ev-4.jpg', placeholder: 'ФОТО' } as Media },
-    { title: 'Расстановки', media: { kind: 'image', src: 'media/ev-5.jpg', placeholder: 'ФОТО' } as Media },
+    { date: '22.03', title: 'Звукотерапия и творчество', media: { kind: 'image', src: 'media/ev-1.jpg', placeholder: 'ФОТО' } as Media },
+    { date: '25.04', title: 'Арт-терапия', media: { kind: 'image', src: 'media/ev-2.jpg', placeholder: 'ФОТО' } as Media },
+    { date: '23.05', title: 'Актёрский мастер-класс', media: { kind: 'image', src: 'media/ev-3.jpg', placeholder: 'ФОТО' } as Media },
+    { date: '25.07', title: 'День йоги', media: { kind: 'image', src: 'media/ev-4.jpg', placeholder: 'ФОТО' } as Media },
+    { date: '22.08', title: 'Расстановки', media: { kind: 'image', src: 'media/ev-5.jpg', placeholder: 'ФОТО' } as Media },
   ],
 }
 

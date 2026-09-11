@@ -43,7 +43,7 @@ export function Closing() {
           <p className="close__price" data-reveal="0">
             <b>{pricing.early}</b>
             <s>{pricing.regular}</s>
-            {left > 0 && <i>ещё {left} {plural(left)}</i>}
+            {left > 0 && <i>скидка ещё {left} {plural(left)}</i>}
           </p>
 
           <p className="close__what" data-reveal="0.03">{pricing.what}</p>

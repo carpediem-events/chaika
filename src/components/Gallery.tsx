@@ -65,13 +65,13 @@ export function Gallery() {
         </header>
 
         <ul className="gal__track" ref={track}>
-          {gallery.items.map((item, i) => (
+          {gallery.items.map((item) => (
             <li className="gal__card" key={item.title}>
               <div className="gal__media">
                 <Frame media={item.media} eager />
               </div>
               <div className="gal__cap">
-                <span className="gal__num">{String(i + 1).padStart(2, '0')}</span>
+                <span className="gal__date">{item.date}</span>
                 <h3 className="gal__card-title">{item.title}</h3>
               </div>
             </li>

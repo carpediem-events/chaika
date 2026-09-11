@@ -42,10 +42,11 @@
   padding-top: 14px;
   border-top: 1px solid var(--line);
 }
-.gal__num {
+.gal__date {
+  flex: none;
   font-family: var(--font-display);
-  font-size: 13px;
-  color: var(--ink-faint);
+  font-size: 14px;
+  color: var(--ink-soft);
   font-variant-numeric: tabular-nums;
 }
 .gal__card-title {
